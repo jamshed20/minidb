@@ -6,6 +6,7 @@ import com.jamshed.javaproject.enums.DataType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Table {
     private final String tableName;
@@ -15,7 +16,7 @@ public class Table {
     public Table(String tableName, Schema schema) {
         validate(tableName, schema);
 
-        this.tableName = tableName;
+        this.tableName = tableName.toUpperCase(Locale.ROOT);
         this.schema = schema;
         this.rows = new ArrayList<>();
     }

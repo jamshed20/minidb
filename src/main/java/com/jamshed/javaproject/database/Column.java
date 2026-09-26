@@ -3,6 +3,8 @@ package com.jamshed.javaproject.database;
 
 import com.jamshed.javaproject.enums.DataType;
 
+import java.util.Locale;
+
 public class Column {
     private final String columnName;
     private final DataType columnType;
@@ -14,7 +16,7 @@ public class Column {
         if (columnType == null) {
             throw  new IllegalArgumentException("columnType is null");
         }
-        this.columnName = columnName;
+        this.columnName = columnName.toUpperCase(Locale.ROOT);
         this.columnType = columnType;
     }
 

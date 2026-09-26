@@ -1,5 +1,9 @@
 package com.jamshed.javaproject.database;
 
+import com.jamshed.javaproject.database.impl.BooleanValue;
+import com.jamshed.javaproject.database.impl.IntValue;
+import com.jamshed.javaproject.database.impl.TextValue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,5 +24,22 @@ public class Row {
         }
 
         values.add(value);
+    }
+
+    public void addValue(Integer value) {
+        IntValue intValue = new IntValue();
+        intValue.setValue(value);
+        addValue(intValue);
+    }
+    public void addValue(Boolean value) {
+        BooleanValue booleanValue = new BooleanValue();
+        booleanValue.setValue(value);
+
+        addValue(booleanValue);
+    }
+    public void addValue(String value){
+        TextValue textValue = new TextValue();
+        textValue.setValue(value);
+        addValue(textValue);
     }
 }
