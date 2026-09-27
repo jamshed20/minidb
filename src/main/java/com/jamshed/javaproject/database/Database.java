@@ -43,6 +43,12 @@ public class Database {
     public Table getTable(String tableName) {
         tableName = normalizeTableName(tableName);
 
+        if (!database.containsKey(tableName)) {
+            throw new IllegalArgumentException(
+                    "Table does not exist: " + tableName
+            );
+        }
+
         Table table = database.get(tableName);
 
         if (table == null) {
@@ -50,6 +56,8 @@ public class Database {
                     "Table does not exist: " + tableName
             );
         }
+
+
 
         return table;
     }
@@ -63,4 +71,6 @@ public class Database {
 
         return tableName.toUpperCase(Locale.ROOT);
     }
+
+
 }
